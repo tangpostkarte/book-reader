@@ -36,4 +36,28 @@
 
 <!--    把静态资源排除在外-->
     <mvc:default-servlet-handler />
+
+<!--    Maybatis与Spring的整合配置-->
+<!--    1, 配置数据源-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+<!--        jdbc驱动-->
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
+<!--        连接字符串-->
+        <property name="url" value="jdbc:mysql://192.168.3.12:3306/book_reader?useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=Asia/Shanghai&amp;allowPublicKeyRetrieval=true" />
+<!--        连接数据库的用户名和密码-->
+        <property name="username" value="root" />
+        <property name="password" value="123456" />
+
+<!--        连接池初始化时候设置几个数据库连接-->
+        <property name="initialSize" value="5" />
+<!--        连接池最大数量-->
+        <property name="maxActive" value="20" />
+
+    </bean>
+<!--    2.配置SessionFactoryBean-->
+
+<!--    3,配置Mapper扫描器-->
+
+<!--    4,配置mybatis-config.xml-->
+
 </beans>
