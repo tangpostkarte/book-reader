@@ -21,7 +21,18 @@
     <context:component-scan base-package="top.tang360" />
 
 <!--    开启spring  mvc的注解模式-->
-    <mvc:annotation-driven />
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+<!--            对POST请求的响应进行字符集编码-->
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>application/json;charset=utf-8</value>
+                    </list>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
 
 <!--    把静态资源排除在外-->
     <mvc:default-servlet-handler />
