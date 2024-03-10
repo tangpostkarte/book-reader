@@ -54,10 +54,21 @@
         <property name="maxActive" value="20" />
 
     </bean>
-<!--    2.配置SessionFactoryBean-->
+<!--    2.配置SessionFactoryBean, 在spring  ioc容器启动时候，自动完成sessionFactory的创建-->
+    <bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+<!--        关联前面创建的数据源-->
+        <property name="dataSource" ref="dataSource" />
+<!--        扫描哪个目录下的mapper文件-->
+        <property name="mapperLocations" value="classpath:mappers/*.xml" />
+<!--        配置文件路径-->
+        <property name="configLocation" value="classpath:mybatis-config.xml" />
+    </bean>
 
 <!--    3,配置Mapper扫描器-->
-
+<!--            通知mybatis扫描哪一个目录下的接口-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="top.tang360.reader.mapper" />
+    </bean>
 <!--    4,配置mybatis-config.xml-->
 
 </beans>
