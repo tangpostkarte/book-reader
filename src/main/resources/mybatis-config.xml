@@ -7,4 +7,10 @@
 <!--        开启驼峰命名转换,数据库中的下划线命名格式会转为java中的驼峰命名格式-->
         <setting name="mapUnderscoreToCamelCase" value="true"/>
     </settings>
+    
+<!--    增加mybatis-plus的分页插件-->
+<!--    3.4版本以前对分页插件的配置-->
+<!--    <plugins>-->
+<!--        <plugin interceptor="com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor"></plugin>-->
+<!--    </plugins>-->
 </configuration>
