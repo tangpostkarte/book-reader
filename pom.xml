@@ -90,6 +90,13 @@
 <!--      只有在测试运行中才会加载，发布时候不包含-->
       <scope>provided</scope>
     </dependency>
+
+<!--    使用lagback打印日志-->
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>1.2.3</version>
+    </dependency>
   </dependencies>
   <build>
     <finalName>book-reader</finalName>
