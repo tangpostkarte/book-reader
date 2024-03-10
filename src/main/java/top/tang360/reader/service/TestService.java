@@ -15,9 +15,9 @@ public class TestService {
     @Transactional(rollbackFor = Exception.class)
     public void batchImport() {
         for (int i = 0; i < 5; i++) {
-            if (i == 2) {
-                throw new RuntimeException("未处理异常");
-            }
+//            if (i == 2) {
+//                throw new RuntimeException("未处理异常");
+//            }
             testMapper.insertSample();
         }
     }

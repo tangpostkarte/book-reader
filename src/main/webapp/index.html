@@ -178,6 +178,21 @@
         }
         , mounted() {
             //页面初始化时执行的操作
+            const objApp = this;
+            axios.get("/api/category/list").then(response => {
+                const json = response.data;
+                if (json.code === '0') {
+                    json.data.list.forEach(item => {
+                        objApp.categoryOptions.push({
+                            text: item.categoryName,
+                            value: item.categoryId
+                        })
+                    })
+                } else {
+                    // 服务器返回异常
+                    console.error(json);
+                }
+            })
         }
     };
     const app = Vue.createApp(main);
